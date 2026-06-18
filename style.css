@@ -408,7 +408,30 @@ img, video { display: block; width: 100%; }
   font-family: var(--font);
 }
 
-/* ── Page 70: Closing ── */
+/* ── Page 54: YouTube Video ── */
+.youtube-page {
+  background: #FF7B23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube-video-wrap {
+  width: 70.7291667%;
+  aspect-ratio: 1358 / 764;
+  background: #000000;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.youtube-video-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Page 55: Closing ── */
 /*
   Figma 1920×1080 기준
   vw = px ÷ 1920 × 100
