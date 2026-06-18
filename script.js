@@ -190,20 +190,46 @@ function handleFile(slot, zone, file, index) {
   reader.readAsDataURL(file);
 }
 
+// 39페이지 영상의 소리만 조절
+const page39SoundObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+        video.volume = 0.3;
+        video.muted = false;
+      } else {
+        video.muted = true;
+      }
+    });
+  },
+  {
+    threshold: [0, 0.6, 1]
+  }
+);
+
 // ── Render image or video inside slot ──
 function renderMedia(slot, zone, type, src) {
   slot.querySelectorAll('img, video').forEach((el) => el.remove());
   zone.classList.add('hidden');
 
   if (type === 'video') {
-    const vid = document.createElement('video');
-    vid.src         = src;
-    vid.autoplay    = true;
-    vid.loop        = true;
-    vid.playsInline = true;
-    vid.muted       = true;
-    vid.controls    = false;
-    slot.appendChild(vid);
+  const vid = document.createElement('video');
+  const pageNum = Number(slot.dataset.index) + 1;
+
+  vid.src = src;
+  vid.autoplay = true;
+  vid.loop = true;
+  vid.playsInline = true;
+  vid.muted = true;
+  vid.controls = false;
+
+  slot.appendChild(vid);
+
+  if (pageNum === 39) {
+    vid.volume = 0.3;
+    page39SoundObserver.observe(vid);
   } else {
   const img = document.createElement('img');
 
