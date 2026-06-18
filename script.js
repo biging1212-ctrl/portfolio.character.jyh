@@ -53,8 +53,8 @@
 })();
 
 // ── Config ──
-const TOTAL_PAGES = 68; // pages 2–69 (page 70 = closing HTML)
-const FINAL_PAGE_TOTAL = 70;
+const TOTAL_PAGES = 56; // pages 2–57 (page 58 = closing HTML)
+const FINAL_PAGE_TOTAL = 58;
 const STORAGE_KEY = 'portfolio_slots';
 
 // ── Load saved slots from localStorage ──
@@ -72,7 +72,7 @@ const section = document.getElementById('portfolio');
 const saved   = loadSaved();
 
 for (let i = 1; i <= TOTAL_PAGES; i++) {
-  const pageNum = i + 1; // pages 2–80
+  const pageNum = i + 1; // pages 2–58
   const slot    = document.createElement('div');
   slot.className   = 'portfolio-slot';
   slot.dataset.index = i;
