@@ -224,12 +224,7 @@ function renderMedia(slot, zone, type, src) {
   vid.playsInline = true;
   vid.muted = true;
   vid.controls = false;
-
   slot.appendChild(vid);
-
-  if (pageNum === 39) {
-    vid.volume = 0.3;
-    page39SoundObserver.observe(vid);
   } else {
   const img = document.createElement('img');
 
