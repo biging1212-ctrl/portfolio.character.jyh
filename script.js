@@ -86,6 +86,33 @@ for (let i = 1; i <= TOTAL_PAGES; i++) {
   numBadge.textContent = `${String(pageNum).padStart(2, '0')} / ${FINAL_PAGE_TOTAL}`;
   slot.appendChild(numBadge);
 
+// ── PAGE 54: YouTube Video ──
+if (pageNum === 54) {
+  slot.classList.add('youtube-page');
+
+  const videoWrap = document.createElement('div');
+  videoWrap.className = 'youtube-video-wrap';
+
+  const iframe = document.createElement('iframe');
+
+  iframe.src =
+    'https://www.youtube-nocookie.com/embed/9JKTAvEiiZU?rel=0&playsinline=1';
+
+  iframe.title = 'Portfolio YouTube Video';
+
+  iframe.allow =
+    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+  iframe.allowFullscreen = true;
+
+  videoWrap.appendChild(iframe);
+  slot.appendChild(videoWrap);
+
+  section.appendChild(slot);
+
+  continue;
+}
+  
   // upload zone
   const zone = document.createElement('div');
   zone.className = 'upload-zone';
